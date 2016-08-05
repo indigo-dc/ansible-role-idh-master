@@ -1,0 +1,4 @@
+---
+deb_get_url: "http://cdmi-qos.data.kit.edu/repo/identity-harmonization-0.0.1.deb"
+rpm_get_url: "http://cdmi-qos.data.kit.edu/repo/identity-harmonization-0.0.1-1.x86_64.rpm"
+
