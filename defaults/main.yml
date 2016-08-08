@@ -4,4 +4,4 @@ idc_repo_rpm: "http://repo.indigo-datacloud.eu/repository/indigo/1/centos7/x86_6
 idc_repo_apt: "http://repo.indigo-datacloud.eu/repository/indigo/1/ubuntu/dists/trusty/main/binary-amd64/indigodc-release_1.0.0-1_amd64.deb"
 
 # below is a temporary fix
-idh_deb: "http://repo.indigo-datacloud.eu/repository/indigo/1/ubuntu/dists/trusty/main/binary-amd64/identity-harmonization-0.1.deb"
+idh_deb: "http://repo.indigo-datacloud.eu/repository/indigo/1/ubuntu/dists/trusty/main/binary-amd64/identity-harmonization-0.0.1.deb"
