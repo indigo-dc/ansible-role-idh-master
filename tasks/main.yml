@@ -21,7 +21,7 @@
   when: ansible_distribution == "EL"
 
 - name: Install RPM package IndigoDataCloud repo Centos
-  apt: name={{ idc_repo_apt }} state=present update_cache=yes
+  apt: deb={{ idc_repo_apt }} state=present update_cache=yes
   when: ansible_distribution == "Ubuntu"
 
 # Install identity-harmonization package either Centos or Ubuntu
