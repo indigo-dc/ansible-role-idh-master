@@ -2,4 +2,4 @@
 - name: Setup IDH on localhost
   hosts: localhost
   roles:
-    - role: indigo-dc.idh
+    - role: indigo-dc.ansible-role-idh-master
