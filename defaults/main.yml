@@ -1,4 +1,4 @@
 ---
-deb_get_url: "http://cdmi-qos.data.kit.edu/repo/identity-harmonization-0.0.1.deb"
-rpm_get_url: "http://cdmi-qos.data.kit.edu/repo/identity-harmonization-0.0.1-1.x86_64.rpm"
-
+idc_repo_key: "http://repo.indigo-datacloud.eu/repository/RPM-GPG-KEY-indigodc"
+idc_repo_rpm: "http://repo.indigo-datacloud.eu/repository/indigo/1/centos7/x86_64/base/indigodc-release-1.0.0-1.el7.centos.noarch.rpm"
+idc_repo_apt: "http://repo.indigo-datacloud.eu/repository/indigo/1/ubuntu/dists/trusty/main/binary-amd64/indigodc-release_1.0.0-1_amd64.deb"

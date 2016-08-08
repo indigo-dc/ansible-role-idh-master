@@ -2,22 +2,33 @@
 - include: java8.yml
   when: ansible_distribution == "Ubuntu"
 
-- name: Install RPM package
-  yum:
-    name: "{{ rpm_get_url }}"
-    state: present
+# Import IndigoDataCloud keys
+- name: Import IndigoDataCloud public key (Centos7)
+  rpm_key: state=present key={{ idc_repo_key }}
+  when: ansible_distribution == "EL"
+
+- name: Import IndigoDataCloud public key (Ubuntu)
+  apt_key: state=present url={{ idc_repo_key }}
+  when: ansible_distribution == "Ubuntu"
+
+# Install IndigoDataCloud repository packages
+- name: Install RPM package IndigoDataCloud repo Centos
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+    - epel-release
+    - java-1.8.0-openjdk
+    - "{{ idc_repo_rpm }}"
+  when: ansible_distribution == "EL"
+
+- name: Install RPM package IndigoDataCloud repo Centos
+  apt: name={{ idc_repo_apt }} state=present update_cache=yes
+  when: ansible_distribution == "Ubuntu"
+
+# Install identity-harmonization package either Centos or Ubuntu
+- name: Install identity-harmonization package IndigoDataCloud
+  package: name=identity-harmonization state=latest
   notify:
     - restart idh
-  when: ansible_pkg_mgr == "yum"
-
-- name: Install DEB package
-  apt:
-    deb: "{{ deb_get_url }}"
-    state: present
-    dpkg_options: "--force-overwrite"
-  notify:
-    - restart idh 
-  when: ansible_pkg_mgr == "apt"
 
 - name: Start and enable IDH service
   service:

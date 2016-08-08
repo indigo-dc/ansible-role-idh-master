@@ -1,9 +1,5 @@
 ---
-- name: Setup IDH on all IDH servers
-  hosts: centos ubuntu
-  remote_user: ansible
-  become_user: root
-  become: yes
-
+- name: Setup IDH on localhost
+  hosts: localhost
   roles:
     - role: indigo-dc.idh
