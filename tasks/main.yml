@@ -20,7 +20,7 @@
     - "{{ idc_repo_rpm }}"
   when: ansible_distribution == "EL"
 
-- name: Install RPM package IndigoDataCloud repo Centos
+- name: Install DEB package IndigoDataCloud repo Ubuntu
   apt: deb={{ idc_repo_apt }} state=present update_cache=yes
   when: ansible_distribution == "Ubuntu"
 
@@ -29,6 +29,13 @@
   package: name=identity-harmonization state=latest
   notify:
     - restart idh
+  when: ansible_distribution == "EL"
+
+# Temporary task fix to instal idh
+- name: Install DEB package IDH
+  apt: deb={{ idh-deb }} state=present update_cache=yes
+  when: ansible_distribution == "Ubuntu"
+
 
 - name: Start and enable IDH service
   service:
